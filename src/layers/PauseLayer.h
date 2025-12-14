@@ -24,16 +24,9 @@ class $modify(PagePauseLayer, PauseLayer) {
     void paginateMenu(CCNode* menu) {
         menu->setContentHeight(250);
         PageMenu* pageMenu = static_cast<PageMenu*>(menu);
-        pageMenu->setPaged(8, PageOrientation::VERTICAL, 250);
+        pageMenu->setPaged(8, PageOrientation::VERTICAL, 275);
         pageMenu->setFixed(30);
         pageMenu->setButtonScale(0.5f);
-
-        if (AxisLayout* layout = typeinfo_cast<AxisLayout*>(menu->getLayout())) {
-            layout->setAxisAlignment(AxisAlignment::Center);
-            layout->setAxisReverse(false);
-            layout->setGrowCrossAxis(false);
-            layout->setCrossAxisOverflow(false);
-        }
         menu->updateLayout();
     }
 
