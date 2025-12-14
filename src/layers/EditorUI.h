@@ -11,12 +11,12 @@ class $modify(PageEditorUI, EditorUI) {
 
     LATE_MODIFY(EditorUI::init);
 
-    bool init(LevelEditorLayer* editorLayer){
+    bool init(LevelEditorLayer* editorLayer) {
         if (!EditorUI::init(editorLayer)) {
             return false;
         }
 
-        if(Mod::get()->getSettingValue<bool>("editor-build-tabs-menu")){
+        if(Mod::get()->getSettingValue<bool>("editor-build-tabs-menu")) {
             createPageForTabs("build-tabs-menu");
             createPageForTabs("edit-tabs-menu");
             createPageForTabs("delete-tabs-menu");

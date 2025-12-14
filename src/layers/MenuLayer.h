@@ -11,7 +11,7 @@ class $modify(PageMenuLayer, MenuLayer) {
 
     LATE_MODIFY(MenuLayer::init);
 
-    bool init(){
+    bool init() {
         if (!MenuLayer::init()) {
             return false;
         }

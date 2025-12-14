@@ -11,7 +11,7 @@ class $modify(PageCreatorLayer, CreatorLayer) {
 
     LATE_MODIFY(CreatorLayer::init);
 
-    bool init(){
+    bool init() {
         if (!CreatorLayer::init()) {
             return false;
         }

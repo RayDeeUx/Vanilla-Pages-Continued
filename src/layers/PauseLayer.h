@@ -12,7 +12,7 @@ class $modify(PagePauseLayer, PauseLayer) {
     LATE_MODIFY(PauseLayer::customSetup);
 
     void modifyMenu(CCNode* menu) {
-        if (CCBool* dontModify = typeinfo_cast<CCBool*>(menu->getUserObject("dont-modify"_spr))){
+        if (CCBool* dontModify = typeinfo_cast<CCBool*>(menu->getUserObject("dont-modify"_spr))) {
             if (dontModify->getValue()) {
                 return;
             }
@@ -21,40 +21,41 @@ class $modify(PagePauseLayer, PauseLayer) {
         menu->setContentSize({450, 85});
     }
 
-    void customSetup(){
+    void paginateMenu(CCNode* menu) {
+        menu->setContentHeight(250);
+        PageMenu* pageMenu = static_cast<PageMenu*>(menu);
+        pageMenu->setPaged(8, PageOrientation::VERTICAL, 250);
+        pageMenu->setFixed(30);
+        pageMenu->setButtonScale(0.5f);
+
+        if (AxisLayout* layout = typeinfo_cast<AxisLayout*>(menu->getLayout())) {
+            layout->setAxisAlignment(AxisAlignment::Center);
+            layout->setAxisReverse(false);
+            layout->setGrowCrossAxis(false);
+            layout->setCrossAxisOverflow(false);
+        }
+        menu->updateLayout();
+    }
+
+    void customSetup() {
         PauseLayer::customSetup();
 
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
-                rightMenu->setContentHeight(140);
-                int childrenCount = rightMenu->getChildrenCount();
-                if (childrenCount > 4) {
-                    rightMenu->setPositionY(rightMenu->getPositionY() - 20);
-                }
-                PageMenu* pageMenu = static_cast<PageMenu*>(rightMenu);
-                pageMenu->setPaged(4, PageOrientation::VERTICAL, 195);
-                pageMenu->setFixed(30);
-                pageMenu->setButtonScale(0.5f);
-
-                if (AxisLayout* layout = typeinfo_cast<AxisLayout*>(rightMenu->getLayout())) {
-                    layout->setAxisAlignment(AxisAlignment::Center);
-                }
-                rightMenu->updateLayout();
+                paginateMenu(rightMenu);
+            }
+        }
+        if (Mod::get()->getSettingValue<bool>("pause-layer-left-menu")) {
+            if (auto leftMenu = getChildByID("left-button-menu")) {
+                paginateMenu(leftMenu);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
             if (auto centerMenu = getChildByID("center-button-menu")) {
                 modifyMenu(centerMenu);
 
-                int childrenCount = centerMenu->getChildrenCount();
-
-                Layout* layout;
-
-                if (centerMenu->getLayout()) {
-                    layout = centerMenu->getLayout();
-                }
-                else {
-                    layout = RowLayout::create();
+                if (!centerMenu->getLayout()) {
+                    Layout* layout = RowLayout::create();
                     RowLayout* rLayout = static_cast<RowLayout*>(layout);
                     rLayout->setGrowCrossAxis(true);
                     rLayout->setCrossAxisOverflow(false);
@@ -65,6 +66,7 @@ class $modify(PagePauseLayer, PauseLayer) {
                     rLayout->ignoreInvisibleChildren(true);
                     centerMenu->setLayout(rLayout);
                 }
+
                 static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 450);
             }
         }
