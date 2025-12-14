@@ -1,32 +1,30 @@
 {
-	"geode": "4.3.1",
+	"geode": "4.10.0",
 	"gd": {
 		"win": "2.2074",
-		"android": "2.2074",
 		"mac": "2.2074",
-		"ios": "2.2074"
+		"ios": "2.2074",
+		"android": "2.2074"
 	},
-	"id": "alphalaneous.vanilla_pages",
+	"id": "raydeeux.vanilla_pages",
 	"name": "Vanilla Pages",
-	"version": "v1.1.3",
-	"developer": "Alphalaneous",
-	"description": "Adds Pages to Vanilla Menus",
-	"dependencies": [
-        {
-            "id": "geode.node-ids",
-            "version": ">=v1.18.0",
-            "importance": "required"
-        },
-		{
-            "id": "alphalaneous.pages_api",
-            "version": ">=v1.4.8",
-            "importance": "required"
+	"version": "v1.1.4",
+	"developer": "RayDeeUx",
+	"description": "Adds Pages to vanilla menus. Original project by Alphalaneous.",
+	"dependencies": {
+        "geode.node-ids": ">=v1.21.0",
+        "raydeeux.pages_api": ">=v1.4.8"
+    },
+    "incompatibilities": {
+        "alphalaneous.vanilla_pages": {
+            "version": ">=1.1.3",
+            "importance": "superseded"
         }
-    ],
-	"links": {
-        "homepage": "https://linktr.ee/Alphalaneous",
-        "source": "https://github.com/Alphalaneous/Vanilla-Pages",
-        "community": "https://discord.gg/Txn2CA5dHF"
+    },
+    "links": {
+        "homepage": "https://discord.com/channels/822510988409831486/1206371881222144020",
+        "source": "https://github.com/RayDeeUx/Pages-API-Continued",
+        "community": "https://discord.gg/WqZBYdBWZW"
     },
     "settings": {
         "menulayer-right-menu": {
@@ -48,7 +46,7 @@
             "default": true
         },
         "creator-layer-menu": {
-            "name": "CreatorLayer Menu",
+            "name": "CreatorLayer Main Menu",
             "description": "Enable pages on the CreatorLayer menu",
             "type": "bool",
             "default": true
@@ -62,6 +60,12 @@
         "pause-layer-right-menu": {
             "name": "PauseLayer Right Menu",
             "description": "Enable pages on the PauseLayer right menu",
+            "type": "bool",
+            "default": true
+        },
+        "pause-layer-left-menu": {
+            "name": "PauseLayer Left Menu",
+            "description": "Enable pages on the PauseLayer left menu",
             "type": "bool",
             "default": true
         },
