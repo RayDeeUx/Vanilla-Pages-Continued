@@ -11,14 +11,10 @@ class $modify(PageLevelInfoLayer, LevelInfoLayer) {
 
     LATE_MODIFY(LevelInfoLayer::init);
 
-    struct Fields {
-        PageMenu* m_leftSidePage;
-    };
-
     void setPages() {
         if (Mod::get()->getSettingValue<bool>("levelinfolayer-left-menu")) {
             if (auto leftSideMenu = getChildByID("left-side-menu")) {
-                static_cast<PageMenu*>(leftSideMenu)->setPaged(3, PageOrientation::VERTICAL, 150);
+                static_cast<PageMenu*>(leftSideMenu)->setPaged(4, PageOrientation::VERTICAL, 150);
             }
         }
     }
