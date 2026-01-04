@@ -21,10 +21,10 @@ class $modify(PagePauseLayer, PauseLayer) {
         menu->setContentSize({450, 85});
     }
 
-    void paginateMenu(CCNode* menu) {
+    void paginateMenu(CCNode* menu, int countPerPage, int maxHeight) {
         menu->setContentHeight(250);
         PageMenu* pageMenu = static_cast<PageMenu*>(menu);
-        pageMenu->setPaged(8, PageOrientation::VERTICAL, 275);
+        pageMenu->setPaged(countPerPage, PageOrientation::VERTICAL, maxHeight);
         pageMenu->setFixed(30);
         pageMenu->setButtonScale(0.5f);
         menu->updateLayout();
@@ -35,13 +35,13 @@ class $modify(PagePauseLayer, PauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
-                paginateMenu(rightMenu);
+                paginateMenu(rightMenu, 6, 265);
                 rightMenu->setPositionY(280);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-left-menu")) {
             if (auto leftMenu = getChildByID("left-button-menu")) {
-                paginateMenu(leftMenu);
+                paginateMenu(leftMenu, 8, 275);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
