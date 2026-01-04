@@ -35,8 +35,9 @@ class $modify(PagePauseLayer, PauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
-                paginateMenu(rightMenu, 6, 265);
-                rightMenu->setPositionY(280);
+                paginateMenu(rightMenu, 7, 190);
+                rightMenu->setAnchorPoint({.5f, .5f});
+                rightMenu->setPositionY(190);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-left-menu")) {
