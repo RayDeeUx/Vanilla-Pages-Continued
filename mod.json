@@ -83,7 +83,13 @@
         },
         "editor-pause-guidelines-menu": {
             "name": "Editor Pause Menu Guidelines Menu",
-            "description": "Enable pages on the Editor pause menu's Guidelines Menu",
+            "description": "Enable pages on the Editor pause menu's guidelines Menu",
+            "type": "bool",
+            "default": true
+        },
+        "editor-pause-settings-menu": {
+            "name": "Editor Pause Menu Settings Menu",
+            "description": "Enable pages on the Editor pause menu's settings Menu",
             "type": "bool",
             "default": true
         }
