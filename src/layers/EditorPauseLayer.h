@@ -27,7 +27,7 @@ class $modify(PageEditorPauseLayer, EditorPauseLayer) {
         if (Mod::get()->getSettingValue<bool>("editor-pause-settings-menu")) {
             if (auto settingsMenu = this->getChildByID("settings-menu")) {
                 settingsMenu->setLayout(RowLayout::create()->setAutoScale(true));
-                static_cast<PageMenu*>(settingsMenu)->setPaged(2, PageOrientation::HORIZONTAL, 35);
+                static_cast<PageMenu*>(settingsMenu)->setPaged(2, PageOrientation::HORIZONTAL, 90, -5);
                 static_cast<PageMenu*>(settingsMenu)->setButtonScale(.5f);
             }
         }
