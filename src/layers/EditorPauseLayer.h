@@ -18,7 +18,7 @@ class $modify(PageEditorPauseLayer, EditorPauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("editor-pause-guidelines-menu")) {
             if (auto guidelinesMenu = this->getChildByID("guidelines-menu")) {
-                guidelinesMenu->setLayout(RowLayout::create()->setAutoScale(true));
+                guidelinesMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this is to compensate for some of nwo5's warcrimes with disabling autoscale in this specifc node
                 static_cast<PageMenu*>(guidelinesMenu)->setPaged(7, PageOrientation::HORIZONTAL, (CCDirector::get()->getWinSize().width / 2) - 35);
                 static_cast<PageMenu*>(guidelinesMenu)->setButtonScale(.75f);
             }
@@ -26,7 +26,7 @@ class $modify(PageEditorPauseLayer, EditorPauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("editor-pause-settings-menu")) {
             if (auto settingsMenu = this->getChildByID("settings-menu")) {
-                settingsMenu->setLayout(RowLayout::create()->setAutoScale(true));
+                settingsMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this is to compensate for anyone else thinking they're a comedian by copying nwo5's past war crime of disabling autoscale on node other mods rely on
                 static_cast<PageMenu*>(settingsMenu)->setPaged(2, PageOrientation::HORIZONTAL, 90, -5);
                 static_cast<PageMenu*>(settingsMenu)->setButtonScale(.5f);
             }
