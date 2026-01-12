@@ -4,4 +4,5 @@
 #include "layers/PauseLayer.h"
 #include "layers/LevelInfoLayer.h"
 #include "layers/EditorUI.h"
+#include "layers/EditorPauseLayer.h"
 #include "layers/GJGarageLayer.h"
