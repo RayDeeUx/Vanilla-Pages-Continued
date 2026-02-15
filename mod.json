@@ -24,7 +24,7 @@
         "jotabelike.compact-pause-menu": {
             "version": ">=1.0.0",
             "breaking": false,
-            "additionalCommentWithAKeySoAbsurdImSureTheLoaderWontBeBotheredToDoAnythingWithAfterParsingThis": "in case they change mod IDs again"
+            "a-side-note-from-erymanthus": "in case they change mod IDs again"
         }
     },
     "links": {
