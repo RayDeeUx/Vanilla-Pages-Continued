@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 #include <Geode/Geode.hpp>
@@ -46,3 +47,4 @@ class $modify(PageEditorUI, EditorUI) {
         }
     }
 };
+*/

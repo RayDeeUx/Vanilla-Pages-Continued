@@ -1,3 +1,10 @@
+# 1.1.4
+- Pages API update
+- Added Pages for PauseLayer's left menu
+- Added Pages for EditorPauseLayer's guidelines menu and settings menu
+- Removed support for the editor tabs in EditorUI
+  - EditorTab API v2.0.0 and higher automatically enables pagination on those menus, making this former setting irrelevant
+
 # 1.1.3
 - iOS support
 
