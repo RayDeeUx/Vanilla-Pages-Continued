@@ -16,7 +16,16 @@
         "raydeeux.pages_api": ">=v1.4.15"
     },
     "incompatibilities": {
-        "alphalaneous.vanilla_pages": ">=1.1.3"
+        "alphalaneous.vanilla_pages": ">=1.1.3",
+        "xjotabelikex.compact-pause-menu": {
+            "version": ">=1.0.0",
+            "breaking": false
+        },
+        "jotabelike.compact-pause-menu": {
+            "version": ">=1.0.0",
+            "breaking": false,
+            "additionalCommentWithAKeySoAbsurdImSureTheLoaderWontBeBotheredToDoAnythingWithAfterParsingThis": "in case they change mod IDs again"
+        }
     },
     "links": {
         "homepage": "https://discord.com/channels/822510988409831486/1206371881222144020",
