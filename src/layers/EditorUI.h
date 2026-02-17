@@ -1,9 +1,8 @@
-/*
 #pragma once
 
 #include <Geode/Geode.hpp>
 #include <Geode/modify/EditorUI.hpp>
-#include <raydeeux.pages_api/include/PageMenu.h>
+#include <alphalaneous.pages_api/include/PageMenu.h>
 #include "../Macros.h"
 
 using namespace geode::prelude;
@@ -17,11 +16,9 @@ class $modify(PageEditorUI, EditorUI) {
             return false;
         }
 
-        if(Mod::get()->getSettingValue<bool>("editor-build-tabs-menu")) {
             createPageForTabs("build-tabs-menu");
             createPageForTabs("edit-tabs-menu");
             createPageForTabs("delete-tabs-menu");
-        }
 
         return true;
     }
@@ -47,4 +44,3 @@ class $modify(PageEditorUI, EditorUI) {
         }
     }
 };
-*/
