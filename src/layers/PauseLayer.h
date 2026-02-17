@@ -36,8 +36,8 @@ class $modify(PagePauseLayer, PauseLayer) {
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
                 paginateMenu(rightMenu, 7, 190);
-                rightMenu->setAnchorPoint({.5f, .5f});
-                rightMenu->setPositionY(190);
+                // rightMenu->setAnchorPoint({.5f, .5f});
+                // rightMenu->setPositionY(190);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-left-menu")) {
@@ -48,19 +48,6 @@ class $modify(PagePauseLayer, PauseLayer) {
         if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
             if (auto centerMenu = getChildByID("center-button-menu")) {
                 modifyMenu(centerMenu);
-
-                if (!centerMenu->getLayout()) {
-                    Layout* layout = RowLayout::create();
-                    RowLayout* rLayout = static_cast<RowLayout*>(layout);
-                    rLayout->setGrowCrossAxis(true);
-                    rLayout->setCrossAxisOverflow(false);
-                    rLayout->setAxisAlignment(AxisAlignment::Center);
-                    rLayout->setCrossAxisAlignment(AxisAlignment::Center);
-                    rLayout->setCrossAxisLineAlignment(AxisAlignment::Center);
-                    rLayout->setGap(10);
-                    rLayout->ignoreInvisibleChildren(true);
-                    centerMenu->setLayout(rLayout);
-                }
 
                 static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 450);
             }
