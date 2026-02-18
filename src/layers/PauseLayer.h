@@ -21,10 +21,10 @@ class $modify(PagePauseLayer, PauseLayer) {
         menu->setContentSize({450, 85});
     }
 
-    void paginateMenu(CCNode* menu, int countPerPage, int maxHeight) {
+    void paginateMenu(CCNode* menu, int countPerPage, int maxHeight, float padding = 4.f) {
         menu->setContentHeight(250);
         PageMenu* pageMenu = static_cast<PageMenu*>(menu);
-        pageMenu->setPaged(countPerPage, PageOrientation::VERTICAL, maxHeight);
+        pageMenu->setPaged(countPerPage, PageOrientation::VERTICAL, maxHeight, padding);
         pageMenu->setFixed(30);
         pageMenu->setButtonScale(0.5f);
         menu->updateLayout();
@@ -35,7 +35,7 @@ class $modify(PagePauseLayer, PauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
-                paginateMenu(rightMenu, GEODE_MOBILE(8) GEODE_DESKTOP(7), 170);
+                paginateMenu(rightMenu, GEODE_MOBILE(8) GEODE_DESKTOP(7), 190, GEODE_MOBILE(-2) GEODE_DESKTOP(4));
                 // rightMenu->setAnchorPointY(1.f);
                 // rightMenu->setPositionY(290.f);
             }
