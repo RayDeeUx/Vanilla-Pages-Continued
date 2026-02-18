@@ -8,7 +8,7 @@
     },
     "id": "raydeeux.vanilla_pages",
     "name": "Vanilla Pages",
-    "version": "v1.1.4",
+    "version": "v1.1.5",
     "developer": "RayDeeUx",
     "description": "Adds Pages to vanilla menus. Original project by Alphalaneous.",
     "dependencies": {
