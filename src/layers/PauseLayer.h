@@ -35,7 +35,7 @@ class $modify(PagePauseLayer, PauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
             if (auto rightMenu = getChildByID("right-button-menu")) {
-                paginateMenu(rightMenu, GEODE_MOBILE(6) GEODE_DESKTOP(8), GEODE_MOBILE(170) GEODE_DESKTOP(190), GEODE_MOBILE(-4) GEODE_DESKTOP(-2));
+                paginateMenu(rightMenu, GEODE_MOBILE(7) GEODE_DESKTOP(8), GEODE_MOBILE(150) GEODE_DESKTOP(190), GEODE_MOBILE(-4) GEODE_DESKTOP(-2));
                 // rightMenu->setAnchorPointY(1.f);
                 // rightMenu->setPositionY(290.f);
             }
