@@ -1,4 +1,4 @@
-# 1.1.4
+# 1.1.4 and 1.1.5
 - Pages API update
 - Added Pages for PauseLayer's left menu
 - Added Pages for EditorPauseLayer's guidelines menu and settings menu
