@@ -1,3 +1,6 @@
+# 1.1.6
+- Re-release under Codeberg repo.
+
 # 1.1.4 and 1.1.5
 - Pages API update
 - Added Pages for PauseLayer's left menu
