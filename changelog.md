@@ -1,3 +1,6 @@
+# 1.1.7
+- Added Pages for LevelSearchLayer's other filter menu
+
 # 1.1.6
 - Re-release under Codeberg repo.
 
