@@ -82,6 +82,12 @@
             "type": "bool",
             "default": true
         },
+        "levelsearchlayer-other-filter": {
+            "name": "LevelSearchLayer Other Filter Menu",
+            "description": "Enable pages on the LevelSearchLayer other filter menu",
+            "type": "bool",
+            "default": true
+        },
         "editor-pause-guidelines-menu": {
             "name": "Editor Pause Menu Guidelines Menu",
             "description": "Enable pages on the Editor pause menu's guidelines Menu",
