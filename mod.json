@@ -88,16 +88,6 @@
             "type": "bool",
             "default": true
         },
-        "levelsearchlayer-other-filter-max": {
-            "name": "LevelSearchLayer Other Filter Menu max",
-            "type": "float",
-            "default": 0
-        },
-        "levelsearchlayer-other-filter-padding": {
-            "name": "LevelSearchLayer Other Filter Menu padding",
-            "type": "float",
-            "default": 0
-        },
         "editor-pause-guidelines-menu": {
             "name": "Editor Pause Menu Guidelines Menu",
             "description": "Enable pages on the Editor pause menu's guidelines Menu",
