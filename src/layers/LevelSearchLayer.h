@@ -20,7 +20,7 @@ class $modify(PageLevelSearchLayer, LevelSearchLayer) {
                 static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, 340, -80);
                 static_cast<PageMenu*>(otherFilterMenu)->setButtonScale(.75f);
                 otherFilterMenu->setAnchorPoint({.5f, 1.f});
-                otherFilterMenu->setPosition({CCDirector::get()->getContentWidth() - 22.f, 365.f});
+                otherFilterMenu->setPosition({CCDirector::get()->getWinSize().width - 22.f, 365.f});
             }
         }
         return true;
