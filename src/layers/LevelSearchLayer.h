@@ -17,7 +17,7 @@ class $modify(PageLevelSearchLayer, LevelSearchLayer) {
         }
         if (Mod::get()->getSettingValue<bool>("levelsearchlayer-other-filter")) {
             if (auto otherFilterMenu = getChildByID("other-filter-menu")) {
-                static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, 0.f, 134.f);
+                static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, Mod::get()->getSettingValue<float>("levelsearchlayer-other-filter-max"), Mod::get()->getSettingValue<float>("levelsearchlayer-other-filter-padding"));
                 static_cast<PageMenu*>(otherFilterMenu)->setButtonScale(.75f);
             }
         }
