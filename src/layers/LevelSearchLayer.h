@@ -17,8 +17,10 @@ class $modify(PageLevelSearchLayer, LevelSearchLayer) {
         }
         if (Mod::get()->getSettingValue<bool>("levelsearchlayer-other-filter")) {
             if (auto otherFilterMenu = getChildByID("other-filter-menu")) {
-                static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, 340, -70);
+                static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, 340, -80);
                 static_cast<PageMenu*>(otherFilterMenu)->setButtonScale(.75f);
+                otherFilterMenu->setAnchorPoint({.5f, 1.f});
+                otherFilterMenu->setPosition({CCDirector::get()->getContentWidth() - 22.f, 365.f});
             }
         }
         return true;
