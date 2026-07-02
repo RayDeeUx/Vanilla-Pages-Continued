@@ -18,7 +18,7 @@ class $modify(PageEditorPauseLayer, EditorPauseLayer) {
 
         if (Mod::get()->getSettingValue<bool>("editor-pause-guidelines-menu")) {
             if (auto guidelinesMenu = this->getChildByID("guidelines-menu")) {
-                guidelinesMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this is to compensate for some of nwo5's warcrimes with disabling autoscale in this specifc node
+                guidelinesMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this was supposed to compensate for some of nwo5's warcrimes with disabling autoscale in this specifc node, but now compensates for anyone who uses s*mpleaxislayout
                 static_cast<PageMenu*>(guidelinesMenu)->setPaged(7, PageOrientation::HORIZONTAL, (CCDirector::get()->getWinSize().width / 2) - 35);
                 static_cast<PageMenu*>(guidelinesMenu)->setButtonScale(.75f);
             }
