@@ -21,7 +21,6 @@ class $modify(PageLevelSearchLayer, LevelSearchLayer) {
                 static_cast<PageMenu*>(otherFilterMenu)->setButtonScale(.75f);
             }
         }
-        setPages();
         return true;
     }
 };
