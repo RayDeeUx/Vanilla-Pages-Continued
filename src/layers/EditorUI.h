@@ -1,50 +1,56 @@
-/*
 #pragma once
 
-#include <Geode/Geode.hpp>
-#include <Geode/modify/EditorUI.hpp>
+#include <Geode/modify/EditLevelLayer.hpp>
+#include <Geode/modify/LevelBrowserLayer.hpp>
 #include <raydeeux.pages_api/PageMenu.h>
 #include "../Macros.h"
 
 using namespace geode::prelude;
 
-class $modify(PageEditorUI, EditorUI) {
+class $modify(PageLevelBrowserLayer, LevelBrowserLayer) {
 
-    LATE_MODIFY(EditorUI::init);
+    LATE_MODIFY(LevelBrowserLayer::init);
 
-    bool init(LevelEditorLayer* editorLayer) {
-        if (!EditorUI::init(editorLayer)) {
+    bool init(GJSearchObject* gjso) {
+        if (!LevelBrowserLayer::init(gjso)) {
             return false;
         }
 
-        if(Mod::get()->getSettingValue<bool>("editor-build-tabs-menu")) {
-            createPageForTabs("build-tabs-menu");
-            createPageForTabs("edit-tabs-menu");
-            createPageForTabs("delete-tabs-menu");
+        if (Mod::get()->getSettingValue<bool>("level-browser-bottom-left-menu") && gjso->m_searchType == SearchType::MyLevels) {
+            if (auto blm = this->getChildByID("bottom-left-menu")) {
+                if (auto fuckass = typeinfo_cast<AxisLayout*>(blm->getLayout())) {
+                    blm->setLayout(ColumnLayout::create()->setGap(fuckass->getGap())->setAutoScale(true)->ignoreInvisibleChildren(true));
+                }
+                
+                static_cast<PageMenu*>(blm)->setPaged(3, PageOrientation::VERTICAL, blm->getContentHeight() + 20);
+                static_cast<PageMenu*>(blm)->setButtonScale(.75f);
+            }
         }
 
         return true;
     }
+};
 
-    void createPageForTabs(std::string id) {
-        if (auto tabsMenu = getChildByID(id.c_str())) {
-            if (auto toolbarTogglesMenu = getChildByID("toolbar-toggles-menu")) {
-                tabsMenu->setPositionY(toolbarTogglesMenu->getScaledContentSize().height);
-                tabsMenu->setAnchorPoint({0.5, 0});
-                CCSize winSize = CCDirector::get()->getWinSize();
+class $modify(PageEditLevelLayer, EditLevelLayer) {
 
-                float scale = tabsMenu->getScale();
+    LATE_MODIFY(EditLevelLayer::init);
 
-                float newWidth = 520 / scale;
+    bool init(GJGameLevel* lvl) {
+        if (!EditLevelLayer::init(lvl)) {
+            return false;
+        }
 
-                tabsMenu->setContentSize({newWidth, 17.5});
+        if (Mod::get()->getSettingValue<bool>("edit-level-level-actions-menu")) {
+            if (auto lam = this->getChildByID("level-actions-menu")) {
+                if (auto fuckass = typeinfo_cast<AxisLayout*>(lam->getLayout())) {
+                    lam->setLayout(ColumnLayout::create()->setGap(fuckass->getGap())->setAutoScale(true)->ignoreInvisibleChildren(true));
+                }
 
-                PageMenu* pageMenu = static_cast<PageMenu*>(tabsMenu);
-
-                pageMenu->setPaged(std::ceil(16 / scale), PageOrientation::HORIZONTAL, winSize.width);
-                pageMenu->setButtonScale(0.5f);
+                static_cast<PageMenu*>(lam)->setPaged(6, PageOrientation::VERTICAL, lam->getContentHeight() * .75f);
+                static_cast<PageMenu*>(lam)->setButtonScale(.75f);
             }
         }
+
+        return true;
     }
 };
-*/

@@ -8,7 +8,6 @@
 using namespace geode::prelude;
 
 class $modify(PageEditorPauseLayer, EditorPauseLayer) {
-
     LATE_MODIFY(EditorPauseLayer::init);
 
     bool init(LevelEditorLayer* editorLayer) {
@@ -16,46 +15,13 @@ class $modify(PageEditorPauseLayer, EditorPauseLayer) {
             return false;
         }
 
-        if (Mod::get()->getSettingValue<bool>("editor-pause-guidelines-menu")) {
-            if (auto guidelinesMenu = this->getChildByID("guidelines-menu")) {
-                guidelinesMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this was supposed to compensate for some of nwo5's warcrimes with disabling autoscale in this specifc node, but now compensates for anyone who uses s*mpleaxislayout
-                static_cast<PageMenu*>(guidelinesMenu)->setPaged(7, PageOrientation::HORIZONTAL, (CCDirector::get()->getWinSize().width / 2) - 35);
-                static_cast<PageMenu*>(guidelinesMenu)->setButtonScale(.75f);
-            }
-        }
-
         if (Mod::get()->getSettingValue<bool>("editor-pause-settings-menu")) {
             if (auto settingsMenu = this->getChildByID("settings-menu")) {
-                // TODO: CHANGE THIS TO COLUMN LAYOUT WHEN https://github.com/geode-sdk/NodeIDs/pull/172 GETS MERGED
-                settingsMenu->setLayout(RowLayout::create()->setAutoScale(true)); // this is to compensate for anyone else thinking they're a comedian by copying nwo5's past war crime of disabling autoscale on node other mods rely on
-                static_cast<PageMenu*>(settingsMenu)->setPaged(2, PageOrientation::HORIZONTAL, 90, -5);
-                static_cast<PageMenu*>(settingsMenu)->setButtonScale(.5f);
+                settingsMenu->setLayout(ColumnLayout::create()->setAutoScale(true)); // this is to compensate for anyone else thinking they're a comedian by copying nwo5's past war crime of disabling autoscale on node other mods rely on
+                static_cast<PageMenu*>(settingsMenu)->setPaged(7, PageOrientation::VERTICAL, 250, -17.5);
             }
         }
 
         return true;
     }
-
-/*
-    void createPageForTabs(std::string id) {
-        if (auto tabsMenu = getChildByID(id.c_str())) {
-            if (auto toolbarTogglesMenu = getChildByID("toolbar-toggles-menu")) {
-                tabsMenu->setPositionY(toolbarTogglesMenu->getScaledContentSize().height);
-                tabsMenu->setAnchorPoint({0.5, 0});
-                CCSize winSize = CCDirector::get()->getWinSize();
-
-                float scale = tabsMenu->getScale();
-
-                float newWidth = 520 / scale;
-
-                tabsMenu->setContentSize({newWidth, 17.5});
-
-                PageMenu* pageMenu = static_cast<PageMenu*>(tabsMenu);
-
-                pageMenu->setPaged(std::ceil(16 / scale), PageOrientation::HORIZONTAL, winSize.width);
-                pageMenu->setButtonScale(0.5f);
-            }
-        }
-    }
-*/
 };

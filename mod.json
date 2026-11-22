@@ -78,9 +78,15 @@
             "type": "bool",
             "default": true
         },
-        "editor-pause-guidelines-menu": {
-            "name": "Editor Pause Menu Guidelines Menu",
-            "description": "Enable pages on the Editor pause menu's guidelines Menu",
+        "level-browser-bottom-left-menu": {
+            "name": "LevelBrowserLayer Bottom Left Menu",
+            "description": "Enable pages on the LevelBrowserLayer bottom left menu",
+            "type": "bool",
+            "default": true
+        },
+        "edit-level-level-actions-menu": {
+            "name": "EditLevelLayer Level Actions Menu",
+            "description": "Enable pages on the EditLevelLayer level actions menu",
             "type": "bool",
             "default": true
         },

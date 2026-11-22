@@ -8,15 +8,13 @@
 using namespace geode::prelude;
 
 class $modify(PageLevelSearchLayer, LevelSearchLayer) {
-
     LATE_MODIFY(LevelSearchLayer::init);
-
     bool init(int type) {
         if (!LevelSearchLayer::init(type)) {
             return false;
         }
         if (Mod::get()->getSettingValue<bool>("levelsearchlayer-other-filter")) {
-            if (auto otherFilterMenu = getChildByID("other-filter-menu")) {
+            if (auto otherFilterMenu = this->getChildByID("other-filter-menu")) {
                 static_cast<PageMenu*>(otherFilterMenu)->setPaged(3, PageOrientation::VERTICAL, 340, -80);
                 static_cast<PageMenu*>(otherFilterMenu)->setButtonScale(.75f);
                 otherFilterMenu->setAnchorPoint({.5f, 1.f});

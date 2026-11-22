@@ -15,15 +15,15 @@ class $modify(PageGJGarageLayer, GJGarageLayer) {
 
         if (Mod::get()->getSettingValue<bool>("garage-left-menu")) {
             if (auto leftMenu = getChildByID("shards-menu")) {
-                leftMenu->setContentHeight(160);
+                leftMenu->setContentHeight(150);
                 int childrenCount = leftMenu->getChildrenCount();
-                if (childrenCount > 5) {
+                if (childrenCount > 4) {
                     leftMenu->setPositionY(leftMenu->getPositionY() + 25);
                     leftMenu->setPositionX(leftMenu->getPositionX() - 5);
 
                 }
                 PageMenu* pageMenu = static_cast<PageMenu*>(leftMenu);
-                pageMenu->setPaged(5, PageOrientation::VERTICAL, 200);
+                pageMenu->setPaged(4, PageOrientation::VERTICAL, 165);
                 pageMenu->setFixed(30);
                 pageMenu->setButtonScale(0.5f);
 

@@ -21,10 +21,10 @@ class $modify(PagePauseLayer, PauseLayer) {
         menu->setContentSize({450, 85});
     }
 
-    void paginateMenu(CCNode* menu, int countPerPage, int maxHeight, float padding = 4.f) {
+    void paginateMenu(CCNode* menu, int countPerPage, int maxHeight) {
         menu->setContentHeight(250);
         PageMenu* pageMenu = static_cast<PageMenu*>(menu);
-        pageMenu->setPaged(countPerPage, PageOrientation::VERTICAL, maxHeight, padding);
+        pageMenu->setPaged(countPerPage, PageOrientation::VERTICAL, maxHeight, 4);
         pageMenu->setFixed(30);
         pageMenu->setButtonScale(0.5f);
         menu->updateLayout();
@@ -33,24 +33,20 @@ class $modify(PagePauseLayer, PauseLayer) {
     void customSetup() {
         PauseLayer::customSetup();
 
-        if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu")) {
-            if (auto rightMenu = getChildByID("right-button-menu")) {
-                // thank you kam for testing
-                paginateMenu(rightMenu, GEODE_MOBILE(7) GEODE_DESKTOP(8), GEODE_MOBILE(210) GEODE_DESKTOP(190), GEODE_MOBILE(0) GEODE_DESKTOP(-2));
-                // rightMenu->setAnchorPointY(1.f);
-                // rightMenu->setPositionY(290.f);
+        if (Mod::get()->getSettingValue<bool>("pause-layer-right-menu") && m_mainLayer) {
+            if (auto rightMenu = m_mainLayer->getChildByID("right-button-menu")) {
+                paginateMenu(rightMenu, 7, 230);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-left-menu")) {
-            if (auto leftMenu = getChildByID("left-button-menu")) {
-                paginateMenu(leftMenu, 8, 275);
+            if (auto leftMenu = m_mainLayer->getChildByID("left-button-menu")) {
+                paginateMenu(leftMenu, 8, 270);
             }
         }
         if (Mod::get()->getSettingValue<bool>("pause-layer-menu")) {
-            if (auto centerMenu = getChildByID("center-button-menu")) {
+            if (auto centerMenu = getChildByIDRecursive("center-button-menu")) {
                 modifyMenu(centerMenu);
-
-                static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 450);
+                static_cast<PageMenu*>(centerMenu)->setPaged(6, PageOrientation::HORIZONTAL, 380);
             }
         }
     }
