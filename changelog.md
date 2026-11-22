@@ -1,3 +1,14 @@
+# 1.1.8
+- Added Pages for LevelBrowserLayer's bottom left menu when viewing your own level list
+- Added Pages for EditLevelLayer's level actions menu
+- Modified support for GJGarageLayer's shards menu
+- Modified support for PauseLayer's left button menu
+- Modified support for PauseLayer's right button menu
+- Modified support for EditorPauseLayer's settings menu
+  - it is now a column and runs on the hopes and prayers that all mod developers will mimic the same button style and width as RobTop's buttons
+- Removed support for EditorPauseLayer's guidelines menu
+  - it no longer exists
+
 # 1.1.7
 - Added Pages for LevelSearchLayer's other filter menu
 
