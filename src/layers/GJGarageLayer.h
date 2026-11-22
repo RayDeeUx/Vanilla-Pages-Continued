@@ -1,7 +1,7 @@
 
 #include <Geode/Geode.hpp>
 #include <Geode/modify/GJGarageLayer.hpp>
-#include <raydeeux.pages_api/include/PageMenu.h>
+#include <raydeeux.pages_api/PageMenu.h>
 #include "../Macros.h"
 
 using namespace geode::prelude;

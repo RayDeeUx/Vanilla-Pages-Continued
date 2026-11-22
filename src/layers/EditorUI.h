@@ -3,7 +3,7 @@
 
 #include <Geode/Geode.hpp>
 #include <Geode/modify/EditorUI.hpp>
-#include <raydeeux.pages_api/include/PageMenu.h>
+#include <raydeeux.pages_api/PageMenu.h>
 #include "../Macros.h"
 
 using namespace geode::prelude;
